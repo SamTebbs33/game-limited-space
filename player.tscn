@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://d2w8bsja3te17"]
+
+[ext_resource type="Texture2D" uid="uid://db8kk7i2ga1oj" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Mage/Mage_Idle_1.png" id="1_0s62m"]
+[ext_resource type="Texture2D" uid="uid://c7p0b55pfhf2h" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Mage/Mage_Idle_2.png" id="2_rptpc"]
+[ext_resource type="Texture2D" uid="uid://jyvoeom56pf0" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Mage/Mage_Idle_3.png" id="3_ne867"]
+[ext_resource type="Texture2D" uid="uid://bexcdpcfcjneq" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Mage/Mage_Idle_4.png" id="4_b7mqi"]
+[ext_resource type="Texture2D" uid="uid://chl0nj6c0lu15" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Mage/Mage_Walk_1.png" id="5_eurl3"]
+[ext_resource type="Texture2D" uid="uid://dqnbgwc2bljqj" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Mage/Mage_Walk_2.png" id="6_4qir2"]
+[ext_resource type="Texture2D" uid="uid://h5j3p1voj4jv" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Mage/Mage_Walk_3.png" id="7_x7324"]
+[ext_resource type="Texture2D" uid="uid://7plgysm2lkhs" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Mage/Mage_Walk_4.png" id="8_e4tyj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbjhm"]
+size = Vector2(13, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8c5jb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0s62m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rptpc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ne867")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b7mqi")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_eurl3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4qir2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x7324")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_e4tyj")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 6.5)
+shape = SubResource("RectangleShape2D_fbjhm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8c5jb")
+animation = &"Idle"
+frame_progress = 0.0980858
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
