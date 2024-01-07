@@ -38,3 +38,9 @@ func _physics_process(delta):
 		anim.flip_h = false;
 
 	move_and_slide()
+
+
+func _input(event):
+	if (event is InputEventKey and event.keycode == KEY_E
+		and not event.echo and event.pressed):
+		print("key!")

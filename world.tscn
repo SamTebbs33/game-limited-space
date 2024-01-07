@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://clnfwl130wvpq"]
 
-[ext_resource type="Texture2D" uid="uid://cyinuiykascg0" path="res://assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_8dtl6"]
+[ext_resource type="Texture2D" uid="uid://rmxvdqhk7qcc" path="res://assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_8dtl6"]
 [ext_resource type="PackedScene" uid="uid://d2w8bsja3te17" path="res://player.tscn" id="2_x0p4x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j3ac1"]
@@ -1237,3 +1237,5 @@ layer_0/tile_data = PackedInt32Array(1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0
 
 [node name="Player" parent="." instance=ExtResource("2_x0p4x")]
 position = Vector2(39, 276)
+
+[connection signal="input_event" from="Player" to="Player" method="_on_input_event"]
