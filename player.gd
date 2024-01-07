@@ -32,7 +32,7 @@ func _physics_process(delta):
 	else:
 		anim.play("Idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
+
 	if direction < 0:
 		anim.flip_h = true;
 	elif direction > 0:
