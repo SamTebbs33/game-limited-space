@@ -1,5 +1,7 @@
 extends Node
 
+@onready var player = get_parent().get_node("World").get_node("Player")
+
 class Item:
 
 	var spriteFrameIndex: int
@@ -18,6 +20,10 @@ var items = [Item.new(0, 45, "Magic Book"), Item.new(1, 272, "Scroll of Flight")
 
 func getItemByID(id):
 	return items[id]
+
+func sellItemToPlayer(itemID, price):
+	assert(player.inv.freeSpaces() > 0)
+	player.inv.addItem(itemID)
 
 func _ready():
 	# Make sure no items share an ID

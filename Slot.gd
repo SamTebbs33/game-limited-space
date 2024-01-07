@@ -15,6 +15,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+func isEmpty():
+	return sprite.frame == EMPTY_FRAME_INDEX
 
 func setItem(itemID):
 	var item = Game.getItemByID(itemID)

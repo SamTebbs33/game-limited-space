@@ -26,3 +26,17 @@ func _input(event):
 	if event is InputEventKey and event.is_pressed() and not event.is_echo() and event.keycode == KEY_E:
 		isOpen = !isOpen
 		self.visible = isOpen
+
+func freeSpaces():
+	var spaces = 0
+	for slot in slots:
+		if slot.isEmpty():
+			spaces += 1
+	return spaces
+	
+func addItem(itemID):
+	for slot in slots:
+		if slot.isEmpty():
+			slot.setItem(itemID)
+			return
+	assert(false)
