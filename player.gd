@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var anim = get_node("AnimatedSprite2D")
+@onready var inv = get_node("Inventory")
 
 func _ready():
 	anim.play("Idle")
@@ -23,7 +24,7 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("ui_left", "ui_right") if not inv.isOpen else 0
 	if direction:
 		if velocity.y == 0:
 			anim.play("Walk")
@@ -38,9 +39,3 @@ func _physics_process(delta):
 		anim.flip_h = false;
 
 	move_and_slide()
-
-
-func _input(event):
-	if (event is InputEventKey and event.keycode == KEY_E
-		and not event.echo and event.pressed):
-		print("key!")

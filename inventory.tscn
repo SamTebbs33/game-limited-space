@@ -1,91 +1,62 @@
-[gd_scene load_steps=3 format=3 uid="uid://bu8qtu8wqcfyu"]
+[gd_scene load_steps=4 format=3 uid="uid://gron6p20l37q"]
 
-[ext_resource type="Texture2D" uid="uid://ciap5743o132j" path="res://assets/Kasaya_Inventory/Inventory & chests/1/chest2.png" id="1_m1xhy"]
+[ext_resource type="Texture2D" uid="uid://b6hi7k3sl2s86" path="res://assets/Kasaya_Inventory/Inventory & chests/1/chest2.png" id="1_m1xhy"]
+[ext_resource type="Script" path="res://inventory.gd" id="1_rujb1"]
+[ext_resource type="PackedScene" uid="uid://b01napra81i68" path="res://slot.tscn" id="2_h2hvd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8sn5"]
-size = Vector2(71, 72)
-
-[node name="Inventory" type="CanvasLayer"]
+[node name="Inventory" type="Panel"]
+offset_right = 385.0
+offset_bottom = 300.0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_rujb1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="Chest2" type="Sprite2D" parent="Sprite2D"]
-position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(5, 5)
 texture = ExtResource("1_m1xhy")
+centered = false
 
-[node name="11" type="Area2D" parent="."]
+[node name="0" parent="." instance=ExtResource("2_h2hvd")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="11"]
-position = Vector2(-42.5, 0)
-shape = SubResource("RectangleShape2D_g8sn5")
+[node name="1" parent="." instance=ExtResource("2_h2hvd")]
+position = Vector2(95, 10)
+slotIndex = 1
 
-[node name="12" type="Area2D" parent="."]
+[node name="2" parent="." instance=ExtResource("2_h2hvd")]
+position = Vector2(180, 10)
+slotIndex = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="12"]
-position = Vector2(43, 0)
-shape = SubResource("RectangleShape2D_g8sn5")
+[node name="3" parent="." instance=ExtResource("2_h2hvd")]
+position = Vector2(265, 10)
+slotIndex = 3
 
-[node name="13" type="Area2D" parent="."]
+[node name="4" parent="." instance=ExtResource("2_h2hvd")]
+position = Vector2(10, 95)
+slotIndex = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="13"]
-position = Vector2(128, 0)
-shape = SubResource("RectangleShape2D_g8sn5")
+[node name="5" parent="." instance=ExtResource("2_h2hvd")]
+position = Vector2(95, 95)
+slotIndex = 5
 
-[node name="20" type="Area2D" parent="."]
+[node name="6" parent="." instance=ExtResource("2_h2hvd")]
+position = Vector2(180, 95)
+slotIndex = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="20"]
-position = Vector2(-127, 85)
-shape = SubResource("RectangleShape2D_g8sn5")
+[node name="7" parent="." instance=ExtResource("2_h2hvd")]
+position = Vector2(265, 95)
+slotIndex = 7
 
-[node name="21" type="Area2D" parent="."]
+[node name="8" parent="." instance=ExtResource("2_h2hvd")]
+position = Vector2(10, 180)
+slotIndex = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="21"]
-position = Vector2(-42, 85)
-shape = SubResource("RectangleShape2D_g8sn5")
+[node name="9" parent="." instance=ExtResource("2_h2hvd")]
+position = Vector2(95, 180)
+slotIndex = 9
 
-[node name="22" type="Area2D" parent="."]
+[node name="10" parent="." instance=ExtResource("2_h2hvd")]
+position = Vector2(180, 180)
+slotIndex = 10
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="22"]
-position = Vector2(43, 85)
-shape = SubResource("RectangleShape2D_g8sn5")
-
-[node name="23" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="23"]
-position = Vector2(128, 85)
-shape = SubResource("RectangleShape2D_g8sn5")
-
-[node name="10" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="10"]
-position = Vector2(-127, 0)
-shape = SubResource("RectangleShape2D_g8sn5")
-
-[node name="00" type="Area2D" parent="."]
-position = Vector2(0, -1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="00"]
-position = Vector2(-127, -84)
-shape = SubResource("RectangleShape2D_g8sn5")
-
-[node name="01" type="Area2D" parent="."]
-position = Vector2(0, -1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="01"]
-position = Vector2(-42, -84)
-shape = SubResource("RectangleShape2D_g8sn5")
-
-[node name="02" type="Area2D" parent="."]
-position = Vector2(0, -1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="02"]
-position = Vector2(43, -84)
-shape = SubResource("RectangleShape2D_g8sn5")
-
-[node name="03" type="Area2D" parent="."]
-position = Vector2(0, -1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="03"]
-position = Vector2(128, -84)
-shape = SubResource("RectangleShape2D_g8sn5")
+[node name="11" parent="." instance=ExtResource("2_h2hvd")]
+position = Vector2(265, 180)
+slotIndex = 11

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2w8bsja3te17"]
+[gd_scene load_steps=13 format=3 uid="uid://d2w8bsja3te17"]
 
 [ext_resource type="Texture2D" uid="uid://db8kk7i2ga1oj" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Mage/Mage_Idle_1.png" id="1_0s62m"]
 [ext_resource type="Script" path="res://player.gd" id="1_pyucp"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dqnbgwc2bljqj" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Mage/Mage_Walk_2.png" id="6_4qir2"]
 [ext_resource type="Texture2D" uid="uid://h5j3p1voj4jv" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Mage/Mage_Walk_3.png" id="7_x7324"]
 [ext_resource type="Texture2D" uid="uid://7plgysm2lkhs" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Mage/Mage_Walk_4.png" id="8_e4tyj"]
+[ext_resource type="PackedScene" uid="uid://gron6p20l37q" path="res://inventory.tscn" id="10_dprrm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbjhm"]
 size = Vector2(13, 19)
@@ -67,3 +68,9 @@ metadata/_edit_lock_ = true
 zoom = Vector2(3, 3)
 limit_left = 0
 limit_top = 0
+
+[node name="Inventory" parent="." instance=ExtResource("10_dprrm")]
+offset_left = -90.0
+offset_top = -169.0
+offset_right = 295.0
+offset_bottom = 131.0
