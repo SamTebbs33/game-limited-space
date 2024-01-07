@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://clnfwl130wvpq"]
+[gd_scene load_steps=10 format=3 uid="uid://clnfwl130wvpq"]
 
 [ext_resource type="Texture2D" uid="uid://cyinuiykascg0" path="res://assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_8dtl6"]
 [ext_resource type="PackedScene" uid="uid://d2w8bsja3te17" path="res://player.tscn" id="2_x0p4x"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://ParallaxBackground.gd" id="3_7phym"]
 [ext_resource type="Texture2D" uid="uid://dfmd80l1jyxw7" path="res://assets/oak_woods_v1.0/background/background_layer_2.png" id="4_04rxi"]
 [ext_resource type="Texture2D" uid="uid://dgmtlra6luwe8" path="res://assets/oak_woods_v1.0/background/background_layer_3.png" id="5_l4yft"]
+[ext_resource type="PackedScene" uid="uid://d23fofy4ojmwx" path="res://npc.tscn" id="7_7g47t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j3ac1"]
 texture = ExtResource("1_8dtl6")
@@ -1280,5 +1281,8 @@ texture = ExtResource("5_l4yft")
 position = Vector2(534, 295)
 scale = Vector2(1.11875, 2.12778)
 texture = ExtResource("5_l4yft")
+
+[node name="NPC" parent="." instance=ExtResource("7_7g47t")]
+position = Vector2(308, 287)
 
 [connection signal="input_event" from="Player" to="Player" method="_on_input_event"]

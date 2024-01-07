@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://d23fofy4ojmwx"]
+
+[ext_resource type="Texture2D" uid="uid://bt3k400rmvk1i" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Merchant/Merchant_Idle_1.png" id="1_e61ve"]
+[ext_resource type="Script" path="res://npc.gd" id="1_nht0g"]
+[ext_resource type="Texture2D" uid="uid://cjnbq8266qar6" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Merchant/Merchant_Idle_2.png" id="2_pqpjj"]
+[ext_resource type="Texture2D" uid="uid://1fya8cpvhuwp" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Merchant/Merchant_Idle_3.png" id="3_2wrnr"]
+[ext_resource type="Texture2D" uid="uid://cx7mvoyqjdrq" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Merchant/Merchant_Idle_4.png" id="4_v4y8t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tju7s"]
+radius = 5.0
+height = 16.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_43a1n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_e61ve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pqpjj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2wrnr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_v4y8t")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kpf51"]
+radius = 40.0
+
+[node name="NPC" type="StaticBody2D"]
+script = ExtResource("1_nht0g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CapsuleShape2D_tju7s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_43a1n")
+animation = &"Idle"
+frame_progress = 0.0738967
+flip_h = true
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_kpf51")
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
