@@ -47,4 +47,4 @@ func startDialogue(dialogue):
 
 func isBusy():
 	# The player characteris busy if they're talking to an NPC or if they have the inventory open
-	return inv.isOpen or is_instance_valid(currentDialogueBalloon)
+	return inv.isOpen() or is_instance_valid(currentDialogueBalloon)

@@ -12,7 +12,7 @@ class Item:
 		self.spriteFrameIndex = spriteFrameIndex
 		self.name = name
 		self.id = id
-		
+
 	static func compareID(itemA, itemB):
 		return itemA.id < itemB.id
 
