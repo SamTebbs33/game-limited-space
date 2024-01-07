@@ -1,0 +1,11 @@
+~ start
+
+Merchant: Hello there, I have a wonderful little book on offer today.
+Merchant: Would you like it?
+- Yes
+	Merchant: Excellent... Excellent.. That'll be 20 sovereigns, please.
+	do Game.sellItemToPlayer(0, 20)
+- No
+	Merchant: Well I think you're making a mistake!
+
+=> END
