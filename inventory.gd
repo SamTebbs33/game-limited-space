@@ -13,7 +13,7 @@ func on_input(event, slot):
 	pass
 
 func _input(event):
-	if event is InputEventKey and event.is_pressed() and not event.is_echo() and event.keycode == KEY_E:
+	if event is InputEventKey and event.is_pressed() and not event.is_echo() and event.keycode == KEY_I:
 		self.visible = !self.visible
 
 func isOpen():
