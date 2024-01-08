@@ -51,11 +51,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qm72j"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5w4q"]
+size = Vector2(34, 20)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
-collision_layer = 0
 script = ExtResource("1_pyucp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -84,4 +84,5 @@ scale = Vector2(0.35, 0.35)
 [node name="NPCDetection" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCDetection"]
-shape = SubResource("CircleShape2D_qm72j")
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_n5w4q")
