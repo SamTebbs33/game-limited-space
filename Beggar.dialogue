@@ -1,0 +1,8 @@
+~ start
+Beggar: I'm really hungry, I need some food...
+if Game.player.inv.hasItemWithTag("food"):
+	Beggar: Please, could you spare some for a poor soul?
+	- Sure, here's some food
+		do Game.player.inv.removeFirstItemWithTag("food")
+	- Absolutely not!
+=> END

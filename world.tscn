@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://clnfwl130wvpq"]
+[gd_scene load_steps=22 format=3 uid="uid://clnfwl130wvpq"]
 
 [ext_resource type="Texture2D" uid="uid://cyinuiykascg0" path="res://assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_8dtl6"]
 [ext_resource type="PackedScene" uid="uid://d2w8bsja3te17" path="res://player.tscn" id="2_x0p4x"]
@@ -12,6 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://cjnbq8266qar6" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Merchant/Merchant_Idle_2.png" id="10_l8fcv"]
 [ext_resource type="Texture2D" uid="uid://1fya8cpvhuwp" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Merchant/Merchant_Idle_3.png" id="11_0321x"]
 [ext_resource type="Texture2D" uid="uid://cx7mvoyqjdrq" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Merchant/Merchant_Idle_4.png" id="12_5bw7v"]
+[ext_resource type="Texture2D" uid="uid://bidw7yfqno2d8" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Townsfolk - Female/Townsfolk_F_Idle_1.png" id="13_1q1tr"]
+[ext_resource type="Resource" uid="uid://bfwk5jre5rf7d" path="res://Beggar.dialogue" id="13_u3e5h"]
+[ext_resource type="Texture2D" uid="uid://31otinrb5ssu" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Townsfolk - Female/Townsfolk_F_Idle_2.png" id="14_04dw1"]
+[ext_resource type="Texture2D" uid="uid://etitb47vc752" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Townsfolk - Female/Townsfolk_F_Idle_3.png" id="15_cgvrj"]
+[ext_resource type="Texture2D" uid="uid://dpgjcvei23oyo" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Townsfolk - Female/Townsfolk_F_Idle_4.png" id="16_lxqtp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j3ac1"]
 texture = ExtResource("1_8dtl6")
@@ -1258,6 +1263,26 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_at8x0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_1q1tr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_04dw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_cgvrj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_lxqtp")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
 [node name="World" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1310,9 +1335,20 @@ texture = ExtResource("5_l4yft")
 [node name="Merchant" parent="." instance=ExtResource("7_7g47t")]
 position = Vector2(308, 288)
 dialogue = ExtResource("8_np54w")
+itemsInStock = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Merchant"]
 sprite_frames = SubResource("SpriteFrames_xlf3u")
+animation = &"Idle"
+flip_h = true
+
+[node name="Beggar" parent="." instance=ExtResource("7_7g47t")]
+position = Vector2(464, 287)
+dialogue = ExtResource("13_u3e5h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Beggar"]
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_at8x0")
 animation = &"Idle"
 flip_h = true
 
