@@ -25,6 +25,12 @@ func freeSpaces():
 		if slot.isEmpty():
 			spaces += 1
 	return spaces
+
+func isEmpty():
+	for slot in slots:
+		if not slot.isEmpty():
+			return false
+	return true
 	
 func addItem(itemID):
 	for slot in slots:
@@ -49,3 +55,21 @@ func removeFirstItemWithTag(tag):
 			slot.setEmpty()
 			return true
 	return false
+
+func items(sortFn = null):
+	var items = []
+	for slot in slots:
+		if not slot.isEmpty():
+			items.append(slot.itemID)
+	if sortFn:
+		items.sort_custom(sortFn)
+	print(items)
+	return items
+
+func removeItem(itemID):
+	print("removing " + str(itemID))
+	for slot in slots:
+		print("slot has " + str(slot.itemID))
+		if slot.itemID == itemID:
+			slot.setEmpty()
+			return
