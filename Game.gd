@@ -9,11 +9,13 @@ class Item:
 	var spriteFrameIndex: int
 	var name: String
 	var id: int
+	var tags: Array
 
-	func _init(id, spriteFrameIndex, name):
+	func _init(id, spriteFrameIndex, name, tags = []):
 		self.spriteFrameIndex = spriteFrameIndex
 		self.name = name
 		self.id = id
+		self.tags = tags
 
 	static func compareID(itemA, itemB):
 		return itemA.id < itemB.id

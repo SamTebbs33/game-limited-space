@@ -36,3 +36,8 @@ func addItem(itemID):
 func setMoney(amount):
 	assert(amount >= 0)
 	self.money = amount
+	
+func hasItemWithTag(tag):
+	for slot in slots:
+		if not slot.isEmpty() and tag in Game.getItemByID(slot.itemID).tags:
+			return true
