@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://clnfwl130wvpq"]
+[gd_scene load_steps=16 format=3 uid="uid://clnfwl130wvpq"]
 
 [ext_resource type="Texture2D" uid="uid://cyinuiykascg0" path="res://assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_8dtl6"]
 [ext_resource type="PackedScene" uid="uid://d2w8bsja3te17" path="res://player.tscn" id="2_x0p4x"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dgmtlra6luwe8" path="res://assets/oak_woods_v1.0/background/background_layer_3.png" id="5_l4yft"]
 [ext_resource type="PackedScene" uid="uid://d23fofy4ojmwx" path="res://npc.tscn" id="7_7g47t"]
 [ext_resource type="Resource" uid="uid://cxrk2yyhdikpk" path="res://Merchant.dialogue" id="8_np54w"]
+[ext_resource type="Texture2D" uid="uid://bt3k400rmvk1i" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Merchant/Merchant_Idle_1.png" id="9_jhj31"]
+[ext_resource type="Texture2D" uid="uid://cjnbq8266qar6" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Merchant/Merchant_Idle_2.png" id="10_l8fcv"]
+[ext_resource type="Texture2D" uid="uid://1fya8cpvhuwp" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Merchant/Merchant_Idle_3.png" id="11_0321x"]
+[ext_resource type="Texture2D" uid="uid://cx7mvoyqjdrq" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Merchant/Merchant_Idle_4.png" id="12_5bw7v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j3ac1"]
 texture = ExtResource("1_8dtl6")
@@ -1234,6 +1238,26 @@ texture = ExtResource("1_8dtl6")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_j3ac1")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_xlf3u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_jhj31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_l8fcv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_0321x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5bw7v")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
 [node name="World" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1286,6 +1310,10 @@ texture = ExtResource("5_l4yft")
 [node name="Merchant" parent="." instance=ExtResource("7_7g47t")]
 position = Vector2(308, 288)
 dialogue = ExtResource("8_np54w")
-itemsInStock = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Merchant"]
+sprite_frames = SubResource("SpriteFrames_xlf3u")
+animation = &"Idle"
+flip_h = true
 
 [connection signal="input_event" from="Player" to="Player" method="_on_input_event"]
