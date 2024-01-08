@@ -1,11 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://clnfwl130wvpq"]
+[gd_scene load_steps=19 format=3 uid="uid://clnfwl130wvpq"]
 
 [ext_resource type="Texture2D" uid="uid://cyinuiykascg0" path="res://assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_8dtl6"]
 [ext_resource type="PackedScene" uid="uid://d2w8bsja3te17" path="res://player.tscn" id="2_x0p4x"]
-[ext_resource type="Texture2D" uid="uid://bf6fvjfnor8lh" path="res://assets/oak_woods_v1.0/background/background_layer_1.png" id="3_7a2aa"]
-[ext_resource type="Script" path="res://ParallaxBackground.gd" id="3_7phym"]
-[ext_resource type="Texture2D" uid="uid://dfmd80l1jyxw7" path="res://assets/oak_woods_v1.0/background/background_layer_2.png" id="4_04rxi"]
-[ext_resource type="Texture2D" uid="uid://dgmtlra6luwe8" path="res://assets/oak_woods_v1.0/background/background_layer_3.png" id="5_l4yft"]
 [ext_resource type="PackedScene" uid="uid://d23fofy4ojmwx" path="res://npc.tscn" id="7_7g47t"]
 [ext_resource type="Resource" uid="uid://cxrk2yyhdikpk" path="res://Merchant.dialogue" id="8_np54w"]
 [ext_resource type="Texture2D" uid="uid://bt3k400rmvk1i" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Merchant/Merchant_Idle_1.png" id="9_jhj31"]
@@ -15,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bidw7yfqno2d8" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Townsfolk - Female/Townsfolk_F_Idle_1.png" id="13_1q1tr"]
 [ext_resource type="Resource" uid="uid://bfwk5jre5rf7d" path="res://Beggar.dialogue" id="13_u3e5h"]
 [ext_resource type="Texture2D" uid="uid://31otinrb5ssu" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Townsfolk - Female/Townsfolk_F_Idle_2.png" id="14_04dw1"]
+[ext_resource type="PackedScene" uid="uid://cah7y7qc6i74y" path="res://background.tscn" id="14_i4hyc"]
 [ext_resource type="Texture2D" uid="uid://etitb47vc752" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Townsfolk - Female/Townsfolk_F_Idle_3.png" id="15_cgvrj"]
 [ext_resource type="Texture2D" uid="uid://dpgjcvei23oyo" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Townsfolk - Female/Townsfolk_F_Idle_4.png" id="16_lxqtp"]
 
@@ -1293,45 +1290,6 @@ layer_0/tile_data = PackedInt32Array(1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0
 [node name="Player" parent="." instance=ExtResource("2_x0p4x")]
 position = Vector2(192, 287)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
-script = ExtResource("3_7phym")
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
-motion_mirroring = Vector2(600, 0)
-
-[node name="BackgroundLayer1" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
-position = Vector2(301, 296)
-scale = Vector2(1.87813, 2.11667)
-texture = ExtResource("3_7a2aa")
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
-motion_mirroring = Vector2(690, 0)
-
-[node name="BackgroundLayer2" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
-position = Vector2(175, 295)
-scale = Vector2(1.09375, 2.13333)
-texture = ExtResource("4_04rxi")
-
-[node name="BackgroundLayer3" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
-position = Vector2(525, 295)
-scale = Vector2(1.09375, 2.13333)
-texture = ExtResource("4_04rxi")
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
-motion_mirroring = Vector2(712, 0)
-
-[node name="BackgroundLayer3" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer3"]
-position = Vector2(180, 295)
-scale = Vector2(1.11875, 2.12778)
-texture = ExtResource("5_l4yft")
-
-[node name="BackgroundLayer4" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer3"]
-position = Vector2(534, 295)
-scale = Vector2(1.11875, 2.12778)
-texture = ExtResource("5_l4yft")
-
 [node name="Merchant" parent="." instance=ExtResource("7_7g47t")]
 position = Vector2(308, 288)
 dialogue = ExtResource("8_np54w")
@@ -1351,5 +1309,7 @@ position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_at8x0")
 animation = &"Idle"
 flip_h = true
+
+[node name="Background" parent="." instance=ExtResource("14_i4hyc")]
 
 [connection signal="input_event" from="Player" to="Player" method="_on_input_event"]
