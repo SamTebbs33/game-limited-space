@@ -1,10 +1,14 @@
 ~ start
 
 Merchant: Hello there, I have a wonderful little book on offer today.
-Merchant: Would you like it?
+Merchant: Would you like it for 20 soverigns?
 - Yes
-	Merchant: Excellent... Excellent.. That'll be 20 sovereigns, please.
-	do Game.sellItemToPlayer(0, 20)
+	if Game.player.inv.money >= 20:
+		Merchant: Excellent... Excellent..
+		do Game.sellItemToPlayer(0, 20)
+	else:
+		Merchant: Please come back when you're not poor.
+		=> END
 - No
 	Merchant: Well I think you're making a mistake!
 

@@ -109,3 +109,11 @@ offset_top = 200.0
 offset_right = 354.0
 offset_bottom = 270.0
 slotIndex = 11
+
+[node name="Money" type="Label" parent="."]
+layout_mode = 0
+offset_left = 130.0
+offset_top = -30.0
+offset_right = 192.0
+offset_bottom = -7.0
+text = "Money: "

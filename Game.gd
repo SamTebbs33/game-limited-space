@@ -23,7 +23,9 @@ func getItemByID(id):
 
 func sellItemToPlayer(itemID, price):
 	assert(player.inv.freeSpaces() > 0)
+	assert(player.inv.money >= price)
 	player.inv.addItem(itemID)
+	player.inv.setMoney(player.inv.money - price)
 
 func _ready():
 	# Make sure no items share an ID

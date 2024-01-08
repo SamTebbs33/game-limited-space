@@ -1,10 +1,13 @@
 extends Panel
 
 @onready var slots = get_tree().get_nodes_in_group("InventorySlot")
+@onready var moneyLabel = get_node("Money")
+var money = 30
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if self.visible:
+		moneyLabel.text = "Money: " + str(money)
 
 func on_input(event, slot):
 	pass
@@ -12,7 +15,7 @@ func on_input(event, slot):
 func _input(event):
 	if event is InputEventKey and event.is_pressed() and not event.is_echo() and event.keycode == KEY_E:
 		self.visible = !self.visible
-		
+
 func isOpen():
 	return self.visible
 
@@ -29,3 +32,7 @@ func addItem(itemID):
 			slot.setItem(itemID)
 			return
 	assert(false)
+
+func setMoney(amount):
+	assert(amount >= 0)
+	self.money = amount
