@@ -5,7 +5,7 @@ if Game.currentNPC.itemsInStock >= 1:
 	Merchant: Would you like one for 3 sovereigns? I have {{Game.currentNPC.itemsInStock}} in my wagon.
 	- Yes
 		if Game.player.inv.money >= 3:
-			Merchant: Excellent... Excellent..
+			Merchant: Excellent...
 			do Game.sellItemToPlayer(4, 3)
 			do Game.currentNPC.itemsInStock -= 1
 		else:
@@ -13,5 +13,6 @@ if Game.currentNPC.itemsInStock >= 1:
 			=> END
 	- No
 		Merchant: Well I think you're making a mistake!
-
+else:
+	Merchant: I'm all out of stock unfortunately. Please come back soon!
 => END
