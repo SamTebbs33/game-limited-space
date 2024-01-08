@@ -1,0 +1,12 @@
+~ start
+
+Bandit: Oi you, gimme your valuables or I'll shank ya!
+- OK, OK. Just don't hurt me.
+	if Game.player.inv.isEmpty():
+		Bandit: You haven't got anything! Grrrr....
+	else:
+		Bandit: Well thank you very much, hehehehe...
+		do Game.player.inv.removeItem(Game.player.inv.items(Game.Item.compareValueByID).pop_at(0))
+- I don't think so, chum.
+
+=> END

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://clnfwl130wvpq"]
+[gd_scene load_steps=25 format=3 uid="uid://clnfwl130wvpq"]
 
 [ext_resource type="Texture2D" uid="uid://cyinuiykascg0" path="res://assets/oak_woods_v1.0/oak_woods_tileset.png" id="1_8dtl6"]
 [ext_resource type="PackedScene" uid="uid://d2w8bsja3te17" path="res://player.tscn" id="2_x0p4x"]
@@ -12,8 +12,13 @@
 [ext_resource type="Resource" uid="uid://bfwk5jre5rf7d" path="res://Beggar.dialogue" id="13_u3e5h"]
 [ext_resource type="Texture2D" uid="uid://31otinrb5ssu" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Townsfolk - Female/Townsfolk_F_Idle_2.png" id="14_04dw1"]
 [ext_resource type="PackedScene" uid="uid://cah7y7qc6i74y" path="res://background.tscn" id="14_i4hyc"]
+[ext_resource type="Texture2D" uid="uid://d4m2iooswoy3l" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Thief/Thief_Idle_1.png" id="15_3neqb"]
 [ext_resource type="Texture2D" uid="uid://etitb47vc752" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Townsfolk - Female/Townsfolk_F_Idle_3.png" id="15_cgvrj"]
+[ext_resource type="Resource" uid="uid://d1y4rbbu7sqj1" path="res://Bandit.dialogue" id="15_p2ntl"]
 [ext_resource type="Texture2D" uid="uid://dpgjcvei23oyo" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Townsfolk - Female/Townsfolk_F_Idle_4.png" id="16_lxqtp"]
+[ext_resource type="Texture2D" uid="uid://vn2eac1hx06d" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Thief/Thief_Idle_2.png" id="16_wo3nf"]
+[ext_resource type="Texture2D" uid="uid://b3ohy641d7maf" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Thief/Thief_Idle_3.png" id="17_uycmy"]
+[ext_resource type="Texture2D" uid="uid://dfaguh2am2u6v" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Thief/Thief_Idle_4.png" id="18_7s7dp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j3ac1"]
 texture = ExtResource("1_8dtl6")
@@ -1280,6 +1285,26 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_h7bbd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_3neqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_wo3nf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_uycmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_7s7dp")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
 [node name="World" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1299,17 +1324,28 @@ itemsInStock = 3
 sprite_frames = SubResource("SpriteFrames_xlf3u")
 animation = &"Idle"
 flip_h = true
+metadata/_edit_lock_ = true
 
 [node name="Beggar" parent="." instance=ExtResource("7_7g47t")]
-position = Vector2(464, 287)
+position = Vector2(98, 447)
 dialogue = ExtResource("13_u3e5h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Beggar"]
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_at8x0")
 animation = &"Idle"
-flip_h = true
+metadata/_edit_lock_ = true
 
 [node name="Background" parent="." instance=ExtResource("14_i4hyc")]
+
+[node name="Bandit" parent="." instance=ExtResource("7_7g47t")]
+position = Vector2(373, 448)
+dialogue = ExtResource("15_p2ntl")
+forcedInteraction = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bandit"]
+sprite_frames = SubResource("SpriteFrames_h7bbd")
+animation = &"Idle"
+flip_h = true
 
 [connection signal="input_event" from="Player" to="Player" method="_on_input_event"]
