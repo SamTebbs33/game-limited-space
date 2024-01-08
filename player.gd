@@ -10,6 +10,7 @@ var currentDialogueBalloon: CanvasLayer
 
 @onready var anim = get_node("AnimatedSprite2D")
 @onready var inv = get_node("Inventory")
+@onready var npcDetectionArea = get_node("NPCDetection")
 
 func _ready():
 	anim.play("Idle")
@@ -48,3 +49,17 @@ func startDialogue(dialogue):
 func isBusy():
 	# The player characteris busy if they're talking to an NPC or if they have the inventory open
 	return inv.isOpen() or is_instance_valid(currentDialogueBalloon)
+	
+func _input(event):
+	if isBusy():
+		return
+	if not (event is InputEventKey) or not event.is_pressed() or event.is_echo() or event.keycode != KEY_E:
+		return
+	var nearbyAreas = npcDetectionArea.get_overlapping_areas()
+	if nearbyAreas.size() == 0:
+		return
+	var node = nearbyAreas[0].get_parent()
+	var dialogue = node.dialogue
+	if dialogue:
+		Game.currentNPC = node
+		startDialogue(dialogue)

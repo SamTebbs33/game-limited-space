@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d2w8bsja3te17"]
+[gd_scene load_steps=14 format=3 uid="uid://d2w8bsja3te17"]
 
 [ext_resource type="Texture2D" uid="uid://db8kk7i2ga1oj" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Mage/Mage_Idle_1.png" id="1_0s62m"]
 [ext_resource type="Script" path="res://player.gd" id="1_pyucp"]
@@ -51,6 +51,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qm72j"]
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
 collision_layer = 0
@@ -78,3 +80,8 @@ offset_top = -126.0
 offset_right = 318.0
 offset_bottom = 174.0
 scale = Vector2(0.35, 0.35)
+
+[node name="NPCDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCDetection"]
+shape = SubResource("CircleShape2D_qm72j")
