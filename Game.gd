@@ -20,7 +20,7 @@ class Item:
 	static func compareID(itemA, itemB):
 		return itemA.id < itemB.id
 
-var items = [Item.new(0, 45, "Magic Book"), Item.new(1, 272, "Scroll of Flight"), Item.new(2, 253, "Horse Head"), Item.new(3, 225, "Fossil")]
+var items = [Item.new(0, 45, "Magic Book"), Item.new(1, 272, "Scroll of Flight"), Item.new(2, 253, "Horse Head"), Item.new(3, 225, "Fossil"), Item.new(4, 185, "Strawberry", ["food"])]
 
 func getItemByID(id):
 	return items[id]

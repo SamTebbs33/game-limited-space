@@ -1,12 +1,12 @@
 ~ start
 
 if Game.currentNPC.itemsInStock >= 1:
-	Merchant: Hello there, I have a wonderful little book on offer today.
-	Merchant: Would you like one for 20 sovereigns? I have {{Game.currentNPC.itemsInStock}} in my wagon.
+	Merchant: Hello there, I have a wonderful little strawberry on offer today.
+	Merchant: Would you like one for 3 sovereigns? I have {{Game.currentNPC.itemsInStock}} in my wagon.
 	- Yes
-		if Game.player.inv.money >= 20:
+		if Game.player.inv.money >= 3:
 			Merchant: Excellent... Excellent..
-			do Game.sellItemToPlayer(0, 20)
+			do Game.sellItemToPlayer(4, 3)
 			do Game.currentNPC.itemsInStock -= 1
 		else:
 			Merchant: Please come back when you're not poor.
