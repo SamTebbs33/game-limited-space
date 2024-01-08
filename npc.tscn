@@ -34,6 +34,7 @@ animations = [{
 radius = 28.0179
 
 [node name="NPC" type="StaticBody2D"]
+collision_layer = 0
 script = ExtResource("1_nht0g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
