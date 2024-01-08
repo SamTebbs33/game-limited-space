@@ -10,17 +10,24 @@ class Item:
 	var name: String
 	var id: int
 	var tags: Array
+	var value: int
 
-	func _init(id, spriteFrameIndex, name, tags = []):
+	func _init(id, spriteFrameIndex, name, value, tags = []):
 		self.spriteFrameIndex = spriteFrameIndex
 		self.name = name
 		self.id = id
 		self.tags = tags
+		self.value = value
 
 	static func compareID(itemA, itemB):
 		return itemA.id < itemB.id
+		
+	static func compareValueByID(itemIDA, itemIDB):
+		var itemA = Game.getItemByID(itemIDA)
+		var itemB = Game.getItemByID(itemIDB)
+		return itemA.value < itemB.value
 
-var items = [Item.new(0, 45, "Magic Book"), Item.new(1, 272, "Scroll of Flight"), Item.new(2, 253, "Horse Head"), Item.new(3, 225, "Fossil"), Item.new(4, 185, "Strawberry", ["food"])]
+var items = [Item.new(0, 45, "Magic Book", 10), Item.new(1, 272, "Scroll of Flight", 7), Item.new(2, 253, "Horse Head", 33), Item.new(3, 225, "Fossil", 42), Item.new(4, 185, "Strawberry", 2, ["food"])]
 
 func getItemByID(id):
 	return items[id]
