@@ -42,3 +42,10 @@ func hasItemWithTag(tag):
 		if not slot.isEmpty() and tag in Game.getItemByID(slot.itemID).tags:
 			return true
 	return false
+
+func removeFirstItemWithTag(tag):
+	for slot in slots:
+		if not slot.isEmpty() and tag in Game.getItemByID(slot.itemID).tags:
+			slot.setEmpty()
+			return true
+	return false
