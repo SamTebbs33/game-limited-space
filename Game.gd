@@ -1,6 +1,8 @@
 extends Node
 
 @onready var player = get_parent().get_node("World").get_node("Player")
+# NPC currently being talked to
+var currentNPC : Node
 
 class Item:
 

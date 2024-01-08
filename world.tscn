@@ -1286,5 +1286,6 @@ texture = ExtResource("5_l4yft")
 [node name="Merchant" parent="." instance=ExtResource("7_7g47t")]
 position = Vector2(308, 287)
 dialogue = ExtResource("8_np54w")
+itemsInStock = 1
 
 [connection signal="input_event" from="Player" to="Player" method="_on_input_event"]
