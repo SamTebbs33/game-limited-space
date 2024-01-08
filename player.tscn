@@ -72,6 +72,7 @@ limit_left = 0
 limit_top = 0
 
 [node name="Inventory" parent="." instance=ExtResource("10_dprrm")]
+visible = false
 offset_left = -67.0
 offset_top = -126.0
 offset_right = 318.0
