@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@export var dialogue: DialogueResource
+@export var dialogue: DialogueResource = null
 @onready var anim = get_node("AnimatedSprite2D")
 @export var itemsInStock : int = 0
 @export var forcedInteraction : bool = false
@@ -9,13 +9,17 @@ extends StaticBody2D
 func _ready():
 	anim.play("Idle")
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
+func onPlayerDetected(player):
+	if forcedInteraction and dialogue:
+		startDialogue(player)
 
-func _on_player_detection_body_entered(body):
-	if body.name == "Player" and not body.isBusy() and forcedInteraction:
-		Game.currentNPC = self
-		body.startDialogue(dialogue)
+func onInteractedWithByPlayer(player):
+	startDialogue(player)
+
+func startDialogue(player):
+	Game.currentNPC = self
+	player.startDialogue(dialogue)

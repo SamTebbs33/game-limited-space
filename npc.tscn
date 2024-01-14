@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d23fofy4ojmwx"]
+[gd_scene load_steps=5 format=3 uid="uid://d23fofy4ojmwx"]
 
 [ext_resource type="Script" path="res://npc.gd" id="1_nht0g"]
+[ext_resource type="Script" path="res://PlayerDetection.gd" id="2_50vjw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tju7s"]
 radius = 5.0
@@ -18,9 +19,10 @@ position = Vector2(0, 7)
 shape = SubResource("CapsuleShape2D_tju7s")
 
 [node name="PlayerDetection" type="Area2D" parent="."]
+script = ExtResource("2_50vjw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_kpf51")
 
-[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_entered" from="PlayerDetection" to="PlayerDetection" method="_on_body_entered"]

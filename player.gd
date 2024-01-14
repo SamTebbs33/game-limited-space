@@ -56,10 +56,8 @@ func _input(event):
 	if not (event is InputEventKey) or not event.is_pressed() or event.is_echo() or event.keycode != KEY_E:
 		return
 	var nearbyAreas = npcDetectionArea.get_overlapping_areas()
-	if nearbyAreas.size() == 0:
-		return
-	var node = nearbyAreas[0].get_parent()
-	var dialogue = node.dialogue
-	if dialogue:
-		Game.currentNPC = node
-		startDialogue(dialogue)
+	for nearbyArea in nearbyAreas:
+		if nearbyArea.name == "PlayerDetection":
+			var playerDetection : PlayerDetection = nearbyArea
+			playerDetection.onInteractedWithByPlayer(self)
+			break
