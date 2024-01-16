@@ -36,7 +36,13 @@ class Item:
 		var itemB = Game.getItemByID(itemIDB)
 		return itemA.value < itemB.value
 
-var items = [Item.new(0, 45, "Magic Book", 10), Item.new(1, 272, "Scroll of Flight", 7), Item.new(2, 253, "Horse Head", 33), Item.new(3, 225, "Fossil", 42), Item.new(4, 185, "Strawberry", 2, ["food"])]
+var items = [
+	Item.new(0, 45, "Magic Book", 10),
+	Item.new(1, 272, "Scroll of Flight", 7),
+	Item.new(2, 253, "Horse Head", 33),
+	Item.new(3, 225, "Fossil", 42),
+	Item.new(4, 185, "Strawberry", 2, ["food"])
+]
 
 func getItemByID(id):
 	return items[id]
