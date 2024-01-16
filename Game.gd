@@ -93,3 +93,10 @@ func setMoney(amount):
 
 func hasMetQuota():
 	return playerMoney >= quota
+
+func sellAllItemsForValue():
+	var slot: int = 0
+	for itemID in inventoryItems:
+		setMoney(playerMoney + getItemByID(itemID).value)
+		player.inv.setEmpty(slot)
+		slot += 1
