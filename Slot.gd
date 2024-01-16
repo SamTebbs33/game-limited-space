@@ -20,15 +20,17 @@ func _process(delta):
 func isEmpty():
 	return sprite.frame == EMPTY_FRAME_INDEX
 
-func setItem(itemID):
-	Game.setInventoryItem(slotIndex, itemID)
+func setItem(itemID, tooltip = ""):
+	Game.setInventoryItem(slotIndex, itemID, tooltip)
 	var item = Game.getItemByID(itemID)
 	sprite.frame = item.spriteFrameIndex
-	self.set_tooltip_text(item.name)
+	self.set_tooltip_text(tooltip)
 	self.itemID = itemID
 
 func setEmpty():
 	sprite.frame = EMPTY_FRAME_INDEX
+	self.set_tooltip_text("")
+	Game.setInventoryItem(slotIndex, Game.EMPTY_ITEM_ID, "")
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton:

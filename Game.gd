@@ -4,7 +4,9 @@ extends Node
 # NPC currently being talked to
 var currentNPC : Node
 # Inventory slots
+var EMPTY_ITEM_ID = -1
 var inventoryItems: Array = []
+var inventoryTooltips: Array = []
 var playerMoney: int = 5
 var quota: int = 1
 # If the scene has changed before.
@@ -42,7 +44,8 @@ func getItemByID(id):
 func sellItemToPlayer(itemID, price):
 	assert(player.inv.freeSpaces() > 0)
 	assert(playerMoney >= price)
-	player.inv.addItem(itemID)
+	var item = getItemByID(itemID)
+	player.inv.addItem(itemID, item.name + " bought for " + str(price))
 	setMoney(playerMoney - price)
 
 func _ready():
@@ -70,12 +73,19 @@ func onSceneReady():
 	if not sceneChanged:
 		return
 	player = get_parent().get_node("World").get_node("Player")
+	var slot = 0
 	for itemID in inventoryItems:
-		player.inv.addItem(itemID)
-	
-func setInventoryItem(slot: int, itemID: int):
+		if itemID != EMPTY_ITEM_ID:
+			player.inv.setItem(slot, itemID, inventoryTooltips[slot])
+		else:
+			player.inv.setEmpty(slot)
+		slot += 1
+
+func setInventoryItem(slot: int, itemID: int, tooltip: String = ""):
 	inventoryItems.resize(slot + 1)
+	inventoryTooltips.resize(slot + 1)
 	inventoryItems[slot] = itemID
+	inventoryTooltips[slot] = tooltip
 
 func setMoney(amount):
 	assert(amount >= 0)

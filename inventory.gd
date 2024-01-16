@@ -30,13 +30,19 @@ func isEmpty():
 		if not slot.isEmpty():
 			return false
 	return true
-	
-func addItem(itemID):
+
+func addItem(itemID, tooltip: String = ""):
 	for slot in slots:
 		if slot.isEmpty():
-			slot.setItem(itemID)
+			slot.setItem(itemID, tooltip)
 			return
 	assert(false)
+
+func setItem(slot: int, itemID: int, tooltip: String = ""):
+	slots[slot].setItem(itemID, tooltip)
+
+func setEmpty(slot: int):
+	slots[slot].setEmpty()
 	
 func hasItemWithTag(tag):
 	for slot in slots:
