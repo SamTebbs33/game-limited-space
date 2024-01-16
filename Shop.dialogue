@@ -1,0 +1,17 @@
+~ start
+
+Goblin: Time for you to hand in your earnings from this week!
+if Game.hasMetQuota():
+	Goblin: Well done!
+	do Game.setMoney((Game.playerMoney - Game.quota) / 2)
+	if Game.playerMoney > 1
+		Goblin: You can keep {{Game.playerMoney}} measly pennies
+	elif Game.playerMoney == 0:
+		Goblin: Looks like there's nothing left for you! What a shame
+	else:
+		Goblin: You can keep a single little sovereign for your hard work
+else:
+	Goblin: YOU'RE FIRED!
+endif
+
+=> END

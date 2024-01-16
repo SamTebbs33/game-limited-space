@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var anim : AnimatedSprite2D = get_node("AnimatedSprite2D")
+@export var dialogue : DialogueResource = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,4 +16,5 @@ func onPlayerDetected(player):
 	pass
 
 func onInteractedWithByPlayer(player):
-	print("shop interacted with")
+	if dialogue:
+		Game.player.startDialogue(dialogue)

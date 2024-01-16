@@ -6,7 +6,7 @@ extends Panel
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if self.visible:
-		moneyLabel.text = "Money: " + str(Game.playerMoney)
+		moneyLabel.text = "Money: " + str(Game.playerMoney) + " / " + str(Game.quota)
 
 func on_input(event, slot):
 	pass

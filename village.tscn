@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://pi6dwhqeu2jf"]
+[gd_scene load_steps=6 format=3 uid="uid://pi6dwhqeu2jf"]
 
 [ext_resource type="TileSet" uid="uid://bfqdjheeiy1q2" path="res://tiles.tres" id="1_4vg8n"]
 [ext_resource type="Script" path="res://village.gd" id="1_an6jf"]
 [ext_resource type="PackedScene" uid="uid://sohd61s08nv6" path="res://shop.tscn" id="2_3y378"]
 [ext_resource type="PackedScene" uid="uid://d2w8bsja3te17" path="res://player.tscn" id="3_xuoig"]
+[ext_resource type="Resource" uid="uid://m2ba0ybp8eq0" path="res://Shop.dialogue" id="4_pok8s"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_an6jf")
@@ -15,6 +16,7 @@ layer_0/tile_data = PackedInt32Array(1179648, 65536, 0, 1179649, 65536, 0, 11796
 
 [node name="Shop" parent="." instance=ExtResource("2_3y378")]
 position = Vector2(239, 224)
+dialogue = ExtResource("4_pok8s")
 
 [node name="Player" parent="." instance=ExtResource("3_xuoig")]
 position = Vector2(98, 271)

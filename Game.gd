@@ -5,7 +5,8 @@ extends Node
 var currentNPC : Node
 # Inventory slots
 var inventoryItems: Array = []
-var playerMoney: int = 30
+var playerMoney: int = 5
+var quota: int = 1
 # If the scene has changed before.
 # Determines if we want to transfer state from the old scene or not
 var sceneChanged = false
@@ -79,3 +80,6 @@ func setInventoryItem(slot: int, itemID: int):
 func setMoney(amount):
 	assert(amount >= 0)
 	playerMoney = amount
+
+func hasMetQuota():
+	return playerMoney >= quota
