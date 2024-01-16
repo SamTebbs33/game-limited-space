@@ -21,6 +21,7 @@ func isEmpty():
 	return sprite.frame == EMPTY_FRAME_INDEX
 
 func setItem(itemID):
+	Game.setInventoryItem(slotIndex, itemID)
 	var item = Game.getItemByID(itemID)
 	sprite.frame = item.spriteFrameIndex
 	self.set_tooltip_text(item.name)

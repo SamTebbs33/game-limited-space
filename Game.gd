@@ -1,8 +1,14 @@
 extends Node
 
-@onready var player = get_parent().get_node("World").get_node("Player")
+@onready var player : Player = get_parent().get_node("World").get_node("Player")
 # NPC currently being talked to
 var currentNPC : Node
+# Inventory slots
+var inventoryItems: Array = []
+var playerMoney: int = 30
+# If the scene has changed before.
+# Determines if we want to transfer state from the old scene or not
+var sceneChanged = false
 
 class Item:
 
@@ -34,9 +40,9 @@ func getItemByID(id):
 
 func sellItemToPlayer(itemID, price):
 	assert(player.inv.freeSpaces() > 0)
-	assert(player.inv.money >= price)
+	assert(playerMoney >= price)
 	player.inv.addItem(itemID)
-	player.inv.setMoney(player.inv.money - price)
+	setMoney(playerMoney - price)
 
 func _ready():
 	# Make sure no items share an ID
@@ -47,7 +53,29 @@ func _ready():
 func listProps(class_instance):
 	for method in class_instance.get_method_list():
 		print(method.name + "()")
-	
+
 	for prop in class_instance.get_property_list():
 		if prop.type == 3:
 			print(prop.name)
+
+func setScene(scene_path : String):
+	call_deferred("_deferred_setScene", scene_path)
+
+func _deferred_setScene(scene_path: String):
+	sceneChanged = true
+	get_tree().change_scene_to_file(scene_path)
+
+func onSceneReady():
+	if not sceneChanged:
+		return
+	player = get_parent().get_node("World").get_node("Player")
+	for itemID in inventoryItems:
+		player.inv.addItem(itemID)
+	
+func setInventoryItem(slot: int, itemID: int):
+	inventoryItems.resize(slot + 1)
+	inventoryItems[slot] = itemID
+
+func setMoney(amount):
+	assert(amount >= 0)
+	playerMoney = amount

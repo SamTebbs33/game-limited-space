@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 
 const SPEED = 50.0
@@ -6,7 +7,7 @@ const JUMP_VELOCITY = -175.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var currentDialogueBalloon: CanvasLayer
+var currentDialogueBalloon: CanvasLayer = null
 
 @onready var anim = get_node("AnimatedSprite2D")
 @onready var inv = get_node("Inventory")
