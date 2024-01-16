@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://clnfwl130wvpq"]
+[gd_scene load_steps=27 format=3 uid="uid://clnfwl130wvpq"]
 
 [ext_resource type="TileSet" uid="uid://bfqdjheeiy1q2" path="res://tiles.tres" id="1_idqcb"]
 [ext_resource type="PackedScene" uid="uid://d2w8bsja3te17" path="res://player.tscn" id="2_x0p4x"]
@@ -19,6 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://vn2eac1hx06d" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Thief/Thief_Idle_2.png" id="16_wo3nf"]
 [ext_resource type="Texture2D" uid="uid://b3ohy641d7maf" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Thief/Thief_Idle_3.png" id="17_uycmy"]
 [ext_resource type="Texture2D" uid="uid://dfaguh2am2u6v" path="res://assets/Fantasy RPG NPCs - Individuel Frames/Thief/Thief_Idle_4.png" id="18_7s7dp"]
+[ext_resource type="Texture2D" uid="uid://itttkehmeijr" path="res://assets/oak_woods_v1.0/decorations/sign.png" id="20_e5jx0"]
+[ext_resource type="Script" path="res://Sign.gd" id="21_1cay5"]
+[ext_resource type="Script" path="res://PlayerDetection.gd" id="22_oilft"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xlf3u"]
 animations = [{
@@ -80,6 +83,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7foj"]
+size = Vector2(37, 33)
+
 [node name="World" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -114,7 +120,7 @@ metadata/_edit_lock_ = true
 [node name="Background" parent="." instance=ExtResource("14_i4hyc")]
 
 [node name="Bandit" parent="." instance=ExtResource("7_7g47t")]
-position = Vector2(373, 448)
+position = Vector2(448, 448)
 dialogue = ExtResource("15_p2ntl")
 forcedInteraction = true
 
@@ -122,5 +128,17 @@ forcedInteraction = true
 sprite_frames = SubResource("SpriteFrames_h7bbd")
 animation = &"Idle"
 flip_h = true
+
+[node name="Sign" type="Sprite2D" parent="."]
+position = Vector2(357, 448)
+texture = ExtResource("20_e5jx0")
+script = ExtResource("21_1cay5")
+
+[node name="PlayerDetection" type="Area2D" parent="Sign"]
+script = ExtResource("22_oilft")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sign/PlayerDetection"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_h7foj")
 
 [connection signal="input_event" from="Player" to="Player" method="_on_input_event"]
